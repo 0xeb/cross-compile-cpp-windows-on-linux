@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build 64-bit",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build64"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task for building the 64-bit project."
+        },
+        {
+            "label": "Build 32-bit",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build32"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task for building the 32-bit project."
+        },
+        {
+            "label": "xConfigure 64-bit",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                ".",
+                "-B",
+                "build_64",
+                "-DCMAKE_TOOLCHAIN_FILE=./x86_64-w64-mingw32.cmake"
+            ],
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task for configuring the 64-bit project."
+        },
+        {
+            "label": "xConfigure 32-bit",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                ".",
+                "-B",
+                "build_32",
+                "-DCMAKE_TOOLCHAIN_FILE=./x86_32-w64-mingw32.cmake"
+            ],
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task for configuring the 32-bit project."
+        }
+    ]
+}
